@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int choice;
+    int scores[100];
+    int idx = 0;
+    int averge = 0;
+    
+    while(true)
+    {
+        cout << "1. show ranking & mean of scores" << "\n";
+        cout << "2. Add scores" << "\n";
+        cout << "3. Delete a score" << "\n";
+        cout << "4. Exit" << "\n";
+        
+        cout << "choice : ";
+        cin >> choice;
+        if(choice == 1)
+        {
+            sort(scores, scores+idx+1);
+            cout << "Score board" << "\n" << "\n";
+            cout << "================================" << "\n";
+            
+            for(int i = 1; i < idx+1; i++)
+            {
+                cout << i << "." << scores[i] <<"\n";
+            }
+            
+            cout << "================================"<< "\n";
+            
+            for(int t = 1; t < idx+1; t++)
+            {
+                averge = averge + scores[t];
+            }
+            averge = averge / idx;
+            cout << "Score mean :  " << averge << "\n";
+        }
+        if(choice == 2)
+        {
+            while(true)
+            {
+                cout << "Enter score (0..100) (otherwise exit)" << "\n";
+                cout << "score :";
+                cin >> scores[idx]; // scores[0] = 30
+                if(scores[idx] == -1)
+                {
+                    break;
+                }
+                cout << "[";
+                for(int i = 0 ; i <= idx; i++)
+                {
+                    cout << scores[i] << ", ";
+                }
+                cout << "]" << "\n";
+                idx++;
+            }
+            
+        }
+    }
+    return 0;
+}
+
