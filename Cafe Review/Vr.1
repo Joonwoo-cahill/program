@@ -1,0 +1,87 @@
+/*
+ Author: Joonwoo Cho
+ Date: 3/1/2025
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int menu;
+    int i = 0;
+    int j = 0;
+    string store;
+    string stores[100];
+    float grade;
+    float grades[100];
+    string dstore;
+    string sstore;
+    while(true)
+    {
+        cout << "1. Show all reviews\n";
+        cout << "2. Add cafe review\n";
+        cout << "3. Delete cafe review\n";
+        cout << "4. Search cafe\n";
+        cout << "5. Exit\n";
+        cout << "menu : ";
+        cin >> menu;
+        if(menu == 1)
+        {
+            cout << "Cafe Review" << "\n" << "Store   Grade" << "\n";
+            cout << "====================\n";
+            for(int k = 0; k < i; k++)
+            {
+                cout << stores[k] << "           ";
+                cout << grades[k] << "\n";
+            }
+            cout << "====================\n";
+        }
+        if(menu == 2)
+        {
+            i++;
+            cout << "Add store : ";
+            cin >> store;
+            stores[j] = store;
+            cout << stores[j];
+            cout << "Grade (1..5) : ";
+            cin >> grade;
+            grades[j] = grade;
+            j++;
+        }
+        if(menu == 3)
+        {
+            cout << "Delete store : ";
+            cin >> dstore;
+            for(int h = 0; h < i; h++)
+            {
+                if(dstore == stores[h])
+                {
+                    stores[h] = "x";
+                    grades[h] = 0;
+                }
+            }
+            cout << "Delete is completed\n";
+        }
+        if(menu == 4)
+        {
+            cout << "Search store : ";
+            cin >> sstore;
+            for(int g = 0; g < i; g++)
+            {
+                if(sstore == stores[g])
+                {
+                    cout << stores[g] << "   :    ";
+                    cout << grades[g] << "\n";
+                }
+            }
+        }
+        if(menu == 5)
+        {
+            cout << ">>>";
+            return 0;
+        }
+    }
+    return 0;
+}
